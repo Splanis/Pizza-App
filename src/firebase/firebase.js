@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 
 var firebaseConfig = {
-    apiKey: "AIzaSyChvh1S9zgpLr1DUNxN6JVDA5MZQy9rejA",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "thesis-pcbuilding.firebaseapp.com",
     databaseURL: "https://thesis-pcbuilding.firebaseio.com",
     projectId: "thesis-pcbuilding",
