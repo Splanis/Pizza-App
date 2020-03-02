@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { DropdownItems } from "./DropdownItems";
-import { categories } from "../../store/categories";
+import { categories } from "../../../store/categories";
 
 import { Menu, Button, Dropdown, Input, Icon } from "semantic-ui-react";
 

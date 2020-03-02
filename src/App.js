@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { HomePage } from "./pages/homepage";
-import { Navbar } from "./components/navbar";
+import { Navbar } from "./components/layout/navbar";
 import { Register } from "./pages/register";
 import { Login } from "./pages/login";
 import { Cart } from "./pages/cart";
