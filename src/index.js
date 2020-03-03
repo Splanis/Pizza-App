@@ -1,6 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import App from "./App";
+import { Provider, useSelector } from "react-redux";
+import { ReactReduxFirebaseProvider, isLoaded } from "react-redux-firebase";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+import store, { rrfProps } from "./store/store";
+import App from "./App";
+import Spinner from "./components/shared/Spinner";
+
+const root = document.getElementById("root");
+
+const AuthIsLoaded = ({ children }) => {
+    const auth = useSelector(state => state.firebase.auth);
+    if (!isLoaded(auth)) return <Spinner />;
+    return children;
+};
+
+ReactDOM.render(
+    <Provider store={store}>
+        <ReactReduxFirebaseProvider {...rrfProps}>
+            <AuthIsLoaded>
+                <App />
+            </AuthIsLoaded>
+        </ReactReduxFirebaseProvider>
+    </Provider>,
+    root
+);
