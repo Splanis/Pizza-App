@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 
-import DropdownItems from "./DropdownItems";
-import { categories } from "../../../store/categories";
 import AuthLinks from "./AuthLinks";
 import NotAuthLinks from "./NotAuthLinks";
 
@@ -15,26 +13,17 @@ const Navbar = () => {
     const userFirstName = useSelector(state => state.firebase.profile.firstName);
 
     return (
-        <>
-            <Menu style={{ margin: 0, height: 60 }}>
-                <Link to="/" style={{ display: "flex", justifyContent: "center" }}>
-                    <Menu.Item position="left">
-                        <p>This is Logo</p>
-                    </Menu.Item>
-                </Link>
-                <Menu.Item position="right">
-                    <Input placeholder="Αναζήτηση..." />
-                </Menu.Item>
-                <Menu.Item position="right">{isUser ? <AuthLinks userFirstName={userFirstName} /> : <NotAuthLinks />}</Menu.Item>
-            </Menu>
-            <Menu inverted style={{ marginTop: 0, height: 40, borderRadius: 0 }}>
+        <Menu inverted style={{ display: "flex", height: 70, width: "100%", position: "fixed", top: 0 }}>
+            <Link to="/" style={{ display: "flex", justifyContent: "center", marginRight: "auto" }}>
                 <Menu.Item>
-                    {categories.map(category => (
-                        <DropdownItems key={category.id} name={category.name} subcategories={category.subcategories} />
-                    ))}
+                    <p>This is Logo</p>
                 </Menu.Item>
-            </Menu>
-        </>
+            </Link>
+            <Menu.Item style={{ margin: "auto" }}>
+                <Input inverted placeholder="Αναζήτηση..." />
+            </Menu.Item>
+            <Menu.Item style={{ marginLeft: "auto" }}>{isUser ? <AuthLinks userFirstName={userFirstName} /> : <NotAuthLinks />}</Menu.Item>
+        </Menu>
     );
 };
 
