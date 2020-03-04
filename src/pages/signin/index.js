@@ -50,13 +50,15 @@ const SignIn = () => {
         <Segment placeholder>
             <Grid columns={2} relaxed="very" stackable>
                 <Grid.Column>
-                    <Form onSubmit={handleSubmit}>
+                    <Form onSubmit={handleSubmit} style={{ width: 500 }}>
                         <Form.Field
+                            style={{ width: 250 }}
                             control={Input}
                             icon="user"
                             iconPosition="left"
                             label={"Email"}
                             value={email}
+                            required    
                             onChange={e => setCredentials({ ...credentials, email: e.target.value })}
                             error={
                                 emailError
@@ -67,12 +69,14 @@ const SignIn = () => {
                             }
                         />
                         <Form.Field
+                            style={{ width: 250 }}
                             control={Input}
                             icon="lock"
                             iconPosition="left"
                             label="Κωδικός"
                             type="password"
                             value={password}
+                            required
                             onChange={e => setCredentials({ ...credentials, password: e.target.value })}
                             error={
                                 passwordError
