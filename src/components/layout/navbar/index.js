@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 
-import { DropdownItems } from "./DropdownItems";
+import DropdownItems from "./DropdownItems";
 import { categories } from "../../../store/categories";
 import AuthLinks from "./AuthLinks";
 import NotAuthLinks from "./NotAuthLinks";
@@ -30,7 +30,7 @@ const Navbar = () => {
             <Menu inverted style={{ marginTop: 0, height: 40, borderRadius: 0 }}>
                 <Menu.Item>
                     {categories.map(category => (
-                        <DropdownItems key={category.id} category={category} />
+                        <DropdownItems key={category.id} name={category.name} subcategories={category.subcategories} />
                     ))}
                 </Menu.Item>
             </Menu>
