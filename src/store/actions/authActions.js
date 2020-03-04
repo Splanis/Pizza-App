@@ -17,6 +17,11 @@ export const signUpAction = credentials => async (dispatch, getState, { getFires
 
     try {
         const response = await firebase.auth().createUserWithEmailAndPassword(credentials.email, credentials.password);
+
+        await firebase.auth().currentUser.updateProfile({
+            displayName: credentials.displayName
+        });
+
         await firestore
             .collection("users")
             .doc(response.user.uid)

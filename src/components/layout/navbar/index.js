@@ -10,7 +10,7 @@ import { Menu, Input } from "semantic-ui-react";
 
 const Navbar = () => {
     const isUser = useSelector(state => (state.firebase.auth.uid ? true : false));
-    const userFirstName = useSelector(state => state.firebase.profile.firstName);
+    const displayName = useSelector(state => state.firebase.auth.displayName);
 
     return (
         <Menu inverted style={{ display: "flex", height: 70, width: "100%", position: "fixed", top: 0 }}>
@@ -22,7 +22,7 @@ const Navbar = () => {
             <Menu.Item style={{ margin: "auto" }}>
                 <Input inverted placeholder="Αναζήτηση..." />
             </Menu.Item>
-            <Menu.Item style={{ marginLeft: "auto" }}>{isUser ? <AuthLinks userFirstName={userFirstName} /> : <NotAuthLinks />}</Menu.Item>
+            <Menu.Item style={{ marginLeft: "auto" }}>{isUser ? <AuthLinks userFirstName={displayName} /> : <NotAuthLinks />}</Menu.Item>
         </Menu>
     );
 };
