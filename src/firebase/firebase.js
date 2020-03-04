@@ -1,7 +1,8 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
+import "firebase/auth";
 
-var firebaseConfig = {
+export const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "thesis-pcbuilding.firebaseapp.com",
     databaseURL: "https://thesis-pcbuilding.firebaseio.com",
@@ -12,5 +13,6 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+firebase.firestore();
 
 export default firebase;
