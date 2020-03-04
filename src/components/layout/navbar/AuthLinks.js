@@ -25,10 +25,10 @@ const isUserLinks = ({ userFirstName }) => {
                 <Dropdown text={userFirstName}>
                     <Dropdown.Menu>
                         <Link to="/profile">
-                            <Dropdown.Item style={{ margin: 5 }}>Προφίλ</Dropdown.Item>
+                            <Dropdown.Item style={{ margin: 5, color: "black" }}>Προφίλ</Dropdown.Item>
                         </Link>
                         <Link to="/logout">
-                            <Dropdown.Item style={{ margin: 5 }}>Αποσύνδεση</Dropdown.Item>
+                            <Dropdown.Item style={{ margin: 5, color: "black" }}>Αποσύνδεση</Dropdown.Item>
                         </Link>
                     </Dropdown.Menu>
                 </Dropdown>
