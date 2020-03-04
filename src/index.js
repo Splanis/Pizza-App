@@ -7,6 +7,7 @@ import { ReactReduxFirebaseProvider, isLoaded } from "react-redux-firebase";
 import store, { rrfProps } from "./store/store";
 import App from "./App";
 import Spinner from "./components/shared/Spinner";
+import GlobalTheme from "./components/shared/GlobalTheme";
 
 const root = document.getElementById("root");
 
@@ -20,6 +21,7 @@ ReactDOM.render(
     <Provider store={store}>
         <ReactReduxFirebaseProvider {...rrfProps}>
             <AuthIsLoaded>
+                <GlobalTheme />
                 <App />
             </AuthIsLoaded>
         </ReactReduxFirebaseProvider>
