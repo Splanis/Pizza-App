@@ -22,7 +22,7 @@ const Navbar = () => {
             <Menu.Item style={{ margin: "auto" }}>
                 <Input inverted placeholder="Αναζήτηση..." />
             </Menu.Item>
-            <Menu.Item style={{ marginLeft: "auto" }}>{isUser ? <AuthLinks userFirstName={displayName} /> : <NotAuthLinks />}</Menu.Item>
+            <Menu.Item style={{ marginLeft: "auto" }}>{isUser ? <AuthLinks displayName={displayName} /> : <NotAuthLinks />}</Menu.Item>
         </Menu>
     );
 };

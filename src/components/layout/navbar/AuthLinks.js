@@ -18,11 +18,11 @@ const quantity = {
     transform: "translate(100%, -180%)"
 };
 
-const isUserLinks = ({ userFirstName }) => {
+const isUserLinks = ({ displayName }) => {
     return (
         <>
             <Menu.Item>
-                <Dropdown text={userFirstName}>
+                <Dropdown text={displayName}>
                     <Dropdown.Menu>
                         <Link to="/profile">
                             <Dropdown.Item style={{ margin: 5, color: "black" }}>Προφίλ</Dropdown.Item>
