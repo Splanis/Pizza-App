@@ -15,6 +15,8 @@ const SignUp = () => {
     const [credentials, setCredentials] = useState({
         email: "",
         password: "",
+        password2: "",
+        displayName: "",
         firstName: "",
         lastName: "",
         city: "",
@@ -22,7 +24,7 @@ const SignUp = () => {
         phone: "",
         postal_code: ""
     });
-    const { email, password, firstName, lastName, city, address, postal_code, phone } = credentials;
+    const { email, password, password2, displayName, firstName, lastName, city, address, postal_code, phone } = credentials;
 
     const dispatch = useDispatch();
     const authError = useSelector(state => state.auth.authError);
@@ -46,7 +48,11 @@ const SignUp = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(signUpAction(credentials));
+        if (password === password2) {
+            dispatch(signUpAction(credentials));
+        } else {
+            setError({ emailError: "", passwordError: "Οι κωδικοί δεν ταιριάζουν" });
+        }
     };
 
     return (
@@ -70,6 +76,16 @@ const SignUp = () => {
                     ></Form.Field>
                     <Form.Field
                         control={Input}
+                        type="text"
+                        value={displayName}
+                        onChange={e => setCredentials({ ...credentials, displayName: e.target.value })}
+                        label="Ψευδώνυμο"
+                        required
+                    ></Form.Field>
+                </Form.Group>
+                <Form.Group widths={2}>
+                    <Form.Field
+                        control={Input}
                         type="password"
                         value={password}
                         onChange={e => setCredentials({ ...credentials, password: e.target.value })}
@@ -81,6 +97,14 @@ const SignUp = () => {
                                   }
                                 : null
                         }
+                        required
+                    ></Form.Field>
+                    <Form.Field
+                        control={Input}
+                        type="password"
+                        value={password2}
+                        onChange={e => setCredentials({ ...credentials, password2: e.target.value })}
+                        label="Επανάληψη Κωδικού"
                         required
                     ></Form.Field>
                 </Form.Group>
