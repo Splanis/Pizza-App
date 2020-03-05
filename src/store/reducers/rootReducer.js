@@ -3,11 +3,13 @@ import { firestoreReducer } from "redux-firestore";
 import { firebaseReducer } from "react-redux-firebase";
 
 import { authReducer } from "./authReducer";
-import { storesReducer } from "./storesReducer";
+import { menuReducer } from "./menuReducer";
+import { cartReducer } from "./cartReducer";
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    stores: storesReducer,
+    menu: menuReducer,
+    cart: cartReducer,
     firestore: firestoreReducer,
     firebase: firebaseReducer
 });
