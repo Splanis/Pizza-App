@@ -1,0 +1,272 @@
+{
+    "menu": {
+        "categories": [
+            {
+                "name": "Προσφορές",
+                "id": 1,
+                "items": []
+            },
+            {
+                "name": "Σαλάτες",
+                "id": 2,
+                "items": []
+            },
+            {
+                "name": "Ορεκτικά",
+                "id": 3,
+                "items": []
+            },
+            {
+                "name": "Ζυμαρικά",
+                "id": 4,
+                "items": []
+            },
+            {
+                "name": "Πίτσες",
+                "id": 5,
+                "items": [
+                    {
+                        "id": 5001,
+                        "name": "Siciliana",
+                        "photo": "https://drive.google.com/uc?id=1TAMSqpEuZfjbaZ4DRlbjGQQONl59WOp-",
+                        "price": "6.60",
+                        "ingredients": "Mozzarella, φρέσκια ντομάτα, mix μπαχαρικών, ελαιόλαδο, μαϊντανός, καλαμπόκι, μπέικον"
+                    },
+                    {
+                        "id": 5002,
+                        "name": "Βεζούβιος",
+                        "photo": "https://drive.google.com/uc?id=1-1wFYfl09XNPR7dkht56oprasyLICSeC",
+                        "price": "6.20",
+                        "ingredients": "Mexican sauce, Mozzarella, ταμπάσκο, πεπερόνι"
+                    },
+                    {
+                        "id": 5003,
+                        "name": "Μαντόνα",
+                        "photo": "https://drive.google.com/uc?id=1Tf6d5gV-HK8PTbQ5rW7401A98qy7SGTO",
+                        "price": "5.20",
+                        "ingredients": "Mozzarella, φρέσκια ντομάτα, mix μπαχαρικών, ελαιόλαδο, μαϊντανός, ρίγανη"
+                    },
+                    {
+                        "id": 5004,
+                        "name": "Bianca Chicken Philadelhpia",
+                        "photo": "https://drive.google.com/uc?id=18-nULHU_1Pj32a8QQvdWeR0zC9F7Lbbb",
+                        "price": "6.80",
+                        "ingredients": "Με ροζέτες Philadelphia, Mozzarella, γραβιέρα Νάξου ΠΟΠ, φιλέτο κοτόπουλο και καραμελωμένο κρεμμύδι"
+                    },
+                    {
+                        "id": 5005,
+                        "name": "Tex BBQ",
+                        "photo": "https://drive.google.com/uc?id=1NVPrpcHdI6vpuLcfEaMg8hrH2AU0Ml4g",
+                        "price": "8.70",
+                        "ingredients": "Σάλτσα BBQ, Gouda, φιλέτο κοτόπουλο, φρέσκα μανιτάρια, φρέσκια ντομάτα, πράσινη πιπεριά"
+                    },
+                    {
+                        "id": 5006,
+                        "name": "Spicy Fan",
+                        "photo": "https://drive.google.com/uc?id=1ZvGcj50cKcfYRigB75OeXOVAZfRkNlwO",
+                        "price": "8.10",
+                        "ingredients": "Σάλτσα BBQ, Gouda, κρεμμύδι, φιλέτο κοτόπουλο, πατάτες Crosscut, καυτερή πιπεριά, καλαμπόκι"
+                    },
+                    {
+                        "id": 5007,
+                        "name": "Italian Fan Bolognese",
+                        "photo": "https://drive.google.com/uc?id=156ZkReQMHi-aRn2U__CIevm05lnGyYH7",
+                        "price": "7.80",
+                        "ingredients": "Με λεπτή crispy ζύμη. Σάλτσα bolognese, mozzarella"
+                    },
+                    {
+                        "id": 5008,
+                        "name": "Καπνιστή",
+                        "photo": "https://drive.google.com/uc?id=1JyhTffih4kmIop8dsiHLfVndvcNOn7Uh",
+                        "price": "8.20",
+                        "ingredients": "Σάλτσα ντομάτας, Gouda, γαλοπούλα, καπνιστό χοιρινό, κρεμμύδι"
+                    },
+                    {
+                        "id": 5009,
+                        "name": "Καυτερή Beertuosa",
+                        "photo": "https://drive.google.com/uc?id=1XxUO1mGItTCN22TFQTyWDXzycYqJEIT-",
+                        "price": "8.50",
+                        "ingredients": "Λευκή σάλτσα, τυρί gouda, καπνιστό χοιρινό, πεπερόνι, σαλάμι αέρος, λουκάνικο, καυτερή πιπεριά"
+                    },
+                    {
+                        "id": 5010,
+                        "name": "4 Τυριά",
+                        "photo": "https://drive.google.com/uc?id=1-9-aXxZLd4MXMcA76xJJ4xI62lFxz3aA",
+                        "price": "8.50",
+                        "ingredients": "Λευκή σάλτσα, Gouda, flakes παρμεζάνας, κεφαλοτύρι, Μozzarella"
+                    },
+                    {
+                        "id": 5011,
+                        "name": "Μεσογειακή",
+                        "photo": "https://drive.google.com/uc?id=1ugnWD53Y16Q1lapb_IeMyGCWtUIyWGm3",
+                        "price": "8.50",
+                        "ingredients": "Σάλτσα ντομάτας, Gouda, κρεμμύδι, φρέσκα μανιτάρια, φρέσκια ντομάτα, ελιές, κεφαλοτύρι, νιφάδες φέτας ΠΟΠ Τρίπολης"
+                    },
+                    {
+                        "id": 5012,
+                        "name": "Mexicana",
+                        "photo": "https://drive.google.com/uc?id=1yp8Ycgut5VTqHPdsU5ZSO_98eLAX6iO0",
+                        "price": "8.50",
+                        "ingredients": "Mexican sauce, Gouda, μπέικον, φρέσκια ντομάτα, κρεμμύδι, καλαμπόκι, πράσινη πιπεριά, καυτερή πιπεριά"
+                    },
+                    {
+                        "id": 5013,
+                        "name": "Εξοχής",
+                        "photo": "https://drive.google.com/uc?id=1T80ISOfsBfGEhrvmaoFGugucCmpoWoFx",
+                        "price": "7.80",
+                        "ingredients": "Mexican sauce, Gouda, μπέικον, φρέσκια ντομάτα, κρεμμύδι, καλαμπόκι, πράσινη πιπεριά, καυτερή πιπεριά"
+                    },
+                    {
+                        "id": 5014,
+                        "name": "Κλασική Special",
+                        "photo": "https://drive.google.com/uc?id=1VTgLTUCj0WJpk_b0KU0FhICxuMaDCTWD",
+                        "price": "8.50",
+                        "ingredients": "Σάλτσα ντομάτας, Gouda, πεπερόνι, λουκάνικο, ζαμπόν, μπέικον, φρέσκα μανιτάρια, πράσινη πιπεριά"
+                    },
+                    {
+                        "id": 5015,
+                        "name": "Παραδοσιακή",
+                        "photo": "https://drive.google.com/uc?id=1a8E_EiO6w3nORbvmQPyrDvoFR9pWWsng",
+                        "price": "6.90",
+                        "ingredients": "Σάλτσα ντομάτας, Gouda, ζαμπόν, μπέικον, φρέσκα μανιτάρια, πράσινη πιπεριά"
+                    },
+                    {
+                        "id": 5016,
+                        "name": "Buffalo Chicken",
+                        "photo": "https://drive.google.com/uc?id=1Z_coYE6WGh_R1Oif98MFixVec9rwlNMg",
+                        "price": "8.50",
+                        "ingredients": "Blue cheese sauce, τυρί mozzarella, κοτομπουκιές, μπέικον, sriracha mild sauce."
+                    }
+                ]
+            },
+            {
+                "name": "Η Πίτσα μου",
+                "id": 6,
+                "items": []
+            },
+            {
+                "name": "Γλυκά",
+                "id": 7,
+                "items": []
+            },
+            {
+                "name": "Αναψυκτικά",
+                "id": 8,
+                "items": [
+                    {
+                        "id": 8001,
+                        "name": "Άλφα",
+                        "photo": "https://drive.google.com/uc?id=1djmW5BksXOymYjXoDeYk6vYPEbZbo2Yb",
+                        "price": "1.50",
+                        "ingredients": "330ml"
+                    },
+                    {
+                        "id": 8002,
+                        "name": "Amstel",
+                        "photo": "https://drive.google.com/uc?id=1gN7aRkXTv3VeLKetaOg6aaeqRdpkGoRh",
+                        "price": "1.70",
+                        "ingredients": "330ml"
+                    },
+                    {
+                        "id": 8003,
+                        "name": "Heineken",
+                        "photo": "https://drive.google.com/uc?id=1t9jw2wSxey5p7vcS7_AXlI_Ji7VXIH6e",
+                        "price": "1.80",
+                        "ingredients": "330ml"
+                    },
+                    {
+                        "id": 8004,
+                        "name": "Κρασί Αλλοτινό Λευκό",
+                        "photo": "https://drive.google.com/uc?id=1AbnSmx9_vf4rISj6zwoNjbpt3k5Etb4k",
+                        "price": "3.60",
+                        "ingredients": "500ml"
+                    },
+                    {
+                        "id": 8005,
+                        "name": "Κρασί Αλλοτινό Ερυθρό",
+                        "photo": "https://drive.google.com/uc?id=1QwQoqzNNvB4YM109e2DZJiFj1qSey5-K",
+                        "price": "3.60",
+                        "ingredients": "500ml"
+                    },
+                    {
+                        "id": 8006,
+                        "name": "Green Cola",
+                        "photo": "https://drive.google.com/uc?id=1B3dsdFq89M-u4c6dXjt5IIiAGk7uMoPS",
+                        "price": "1.20",
+                        "ingredients": "330ml"
+                    },
+                    {
+                        "id": 8007,
+                        "name": "Green Cola",
+                        "photo": "https://drive.google.com/uc?id=1Cc6qa9VXJ2LNIg9okBlLMgQmA1lsjKWA",
+                        "price": "1.50",
+                        "ingredients": "1.5L"
+                    },
+                    {
+                        "id": 8008,
+                        "name": "Coca-Cola",
+                        "photo": "https://drive.google.com/uc?id=1OMJ1XP62YGy6H3Zu-zMJXLB3PTZgamiA",
+                        "price": "1.60",
+                        "ingredients": "330ml"
+                    },
+                    {
+                        "id": 8009,
+                        "name": "Coca-Cola",
+                        "photo": "https://drive.google.com/uc?id=13CZoU-ODgpyegvjJdWbBnOJ8WoTpkM1u",
+                        "price": "2.20",
+                        "ingredients": "500ml"
+                    },
+                    {
+                        "id": 8010,
+                        "name": "Coca-Cola",
+                        "photo": "https://drive.google.com/uc?id=1RqRSBthGRjqEvVQdy62Npx2bo3EeCr1V",
+                        "price": "3.40",
+                        "ingredients": "1.5L"
+                    },
+                    {
+                        "id": 8011,
+                        "name": "Coca-Cola Zero",
+                        "photo": "https://drive.google.com/uc?id=1MjsDdgizMpNganW7EeoCRg0r8U_DE2eK",
+                        "price": "1.60",
+                        "ingredients": "330ml"
+                    },
+                    {
+                        "id": 8012,
+                        "name": "Coca-Cola Zero",
+                        "photo": "https://drive.google.com/uc?id=1kaEFzecjK9YSf6itNsVok5ksM2s3pwX3",
+                        "price": "2.20",
+                        "ingredients": "500ml"
+                    },
+                    {
+                        "id": 8013,
+                        "name": "Coca-Cola Zero",
+                        "photo": "https://drive.google.com/uc?id=1NGCzZZl0UzKfMzDyhuPrlUf0kJBarGJe",
+                        "price": "3.40",
+                        "ingredients": "1.5L"
+                    },
+                    {
+                        "id": 8014,
+                        "name": "Sprite",
+                        "photo": "https://drive.google.com/uc?id=12YjQmH-iQftyeErLF_Id_d52d_Rs631O",
+                        "price": "1.6",
+                        "ingredients": "330ml"
+                    },
+                    {
+                        "id": 8015,
+                        "name": "Sprite",
+                        "photo": "https://drive.google.com/uc?id=1f1bNov5jzgAetHW24PsMInKa-2CbBrfy",
+                        "price": "3.40",
+                        "ingredients": "1.5L"
+                    },
+                    {
+                        "id": 8016,
+                        "name": "Νερό Αύρα",
+                        "photo": "https://drive.google.com/uc?id=1Vetg84Nq9NC5xtosK9hw_Mc4FSEMBtpJ",
+                        "price": "0,60",
+                        "ingredients": "1.5L"
+                    }
+                ]
+            }
+        ]
+    }
+}
