@@ -162,7 +162,7 @@ const SignUp = () => {
                         required
                     ></Form.Field>
                 </Form.Group>
-                <Button primary type="submit" style={{ justifyContent: "center" }}>
+                <Button primary type="submit">
                     Εγγραφή
                 </Button>
             </Form>
