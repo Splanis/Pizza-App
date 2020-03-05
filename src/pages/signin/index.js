@@ -58,7 +58,7 @@ const SignIn = () => {
                             iconPosition="left"
                             label={"Email"}
                             value={email}
-                            required    
+                            required
                             onChange={e => setCredentials({ ...credentials, email: e.target.value })}
                             error={
                                 emailError
