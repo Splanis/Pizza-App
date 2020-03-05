@@ -1,8 +1,7 @@
 import * as actions from "../actions/actionTypes";
 
 const initialState = {
-    authError: null,
-    loading: false
+    authError: null
 };
 
 export const authReducer = (state = initialState, { type, payload }) => {
