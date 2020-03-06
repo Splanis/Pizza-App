@@ -35,14 +35,16 @@ const Navbar = () => {
                     <p>This is Logo</p>
                 </Menu.Item>
             </Link>
-            <Menu.Item style={{ margin: "auto" }}>
+            {/* <Menu.Item style={{ margin: "auto" }}>
                 <Input inverted placeholder="Αναζήτηση..." />
-            </Menu.Item>
+            </Menu.Item> */}
             <Menu.Item style={{ marginLeft: "auto" }}>{isUser ? <AuthLinks displayName={displayName} /> : <NotAuthLinks />}</Menu.Item>
-            <Link to="/cart">
-                <Icon style={{ margin: 5, position: "relative" }} size="big" name="shopping cart" />
-                <span style={quantity}>{cartQuantity}</span>
-            </Link>
+            <Menu.Item>
+                <Link to="/cart" style={{ color: "white" }}>
+                    <Icon style={{ margin: 5, position: "relative" }} size="big" name="shopping cart" />
+                    <span style={quantity}>{cartQuantity}</span>
+                </Link>
+            </Menu.Item>
         </Menu>
     );
 };
