@@ -17,14 +17,14 @@ const SignUp = () => {
         password: "",
         password2: "",
         displayName: "",
-        firstName: "",
-        lastName: "",
-        city: "",
+        name: "",
+        floor: "",
+        doorbell: "",
         address: "",
         phone: "",
         postal_code: ""
     });
-    const { email, password, password2, displayName, firstName, lastName, city, address, postal_code, phone } = credentials;
+    const { email, password, password2, displayName, name, floor, doorbell, address, postal_code, phone } = credentials;
 
     const dispatch = useDispatch();
     const authError = useSelector(state => state.auth.authError);
@@ -112,35 +112,17 @@ const SignUp = () => {
                     <Form.Field
                         control={Input}
                         type="text"
-                        value={firstName}
-                        onChange={e => setCredentials({ ...credentials, firstName: e.target.value })}
-                        label="Όνομα"
+                        value={name}
+                        onChange={e => setCredentials({ ...credentials, name: e.target.value })}
+                        label="Όνοματεπώνυμο"
                         required
-                    ></Form.Field>
+                    ></Form.Field>{" "}
                     <Form.Field
                         control={Input}
                         type="text"
-                        value={lastName}
-                        onChange={e => setCredentials({ ...credentials, lastName: e.target.value })}
-                        label="Επώνυμο"
-                        required
-                    ></Form.Field>
-                </Form.Group>
-                <Form.Group widths={2}>
-                    <Form.Field
-                        control={Input}
-                        type="text"
-                        value={city}
-                        onChange={e => setCredentials({ ...credentials, city: e.target.value })}
-                        label="Πόλη"
-                        required
-                    ></Form.Field>
-                    <Form.Field
-                        control={Input}
-                        type="text"
-                        value={address}
-                        onChange={e => setCredentials({ ...credentials, address: e.target.value })}
-                        label="Διεύθυνση"
+                        value={doorbell}
+                        onChange={e => setCredentials({ ...credentials, doorbell: e.target.value })}
+                        label="Κουδούνι"
                         required
                     ></Form.Field>
                 </Form.Group>
@@ -148,9 +130,9 @@ const SignUp = () => {
                     <Form.Field
                         control={Input}
                         type="text"
-                        value={postal_code}
-                        onChange={e => setCredentials({ ...credentials, postal_code: e.target.value })}
-                        label="Τ.Κ"
+                        value={floor}
+                        onChange={e => setCredentials({ ...credentials, floor: e.target.value })}
+                        label="Όροφος"
                         required
                     ></Form.Field>
                     <Form.Field
@@ -159,6 +141,24 @@ const SignUp = () => {
                         value={phone}
                         onChange={e => setCredentials({ ...credentials, phone: e.target.value })}
                         label="Τηλέφωνο"
+                        required
+                    ></Form.Field>
+                </Form.Group>
+                <Form.Group widths={2}>
+                    <Form.Field
+                        control={Input}
+                        type="text"
+                        value={address}
+                        onChange={e => setCredentials({ ...credentials, address: e.target.value })}
+                        label="Διεύθυνση"
+                        required
+                    ></Form.Field>
+                    <Form.Field
+                        control={Input}
+                        type="text"
+                        value={postal_code}
+                        onChange={e => setCredentials({ ...credentials, postal_code: e.target.value })}
+                        label="Τ.Κ"
                         required
                     ></Form.Field>
                 </Form.Group>
