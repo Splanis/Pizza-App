@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Dropdown } from "semantic-ui-react";
 
 const DropdownItems = ({ name, subcategories }) => {
-    console.log("run");
     return (
         <>
             <Dropdown text={name} style={{ width: "200px" }}>
