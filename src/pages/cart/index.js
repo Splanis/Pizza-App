@@ -1,21 +1,42 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 
-import { Segment, Header, Form, Radio, Button, Icon, Item, Image } from "semantic-ui-react";
+import { Segment, Header, Form, Radio, Button, Icon, Item } from "semantic-ui-react";
 
 const Cart = () => {
     const userProfile = useSelector(state => state.firebase.profile);
     const { name, phone, address, postal_code, floor, doorbell } = userProfile;
     const cart = useSelector(state => state.cart);
-    console.log(cart);
+
     return (
         <Segment style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
             <Header as="h1">Ολοκλήρωση Παραγγελίας</Header>
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                 <Segment placeholder style={{ margin: 10, justifyContent: "flex-start" }}>
                     <Header>Στοιχεία αποστολής</Header>
-                    <p>{name}</p>
+                    <p>
+                        Ονοματεπώνυμο: <b>{name}</b>
+                    </p>
+                    <p>
+                        Τηλέφωνο: <b>{phone}</b>
+                    </p>
+                    <p>
+                        Kουδούνι: <b>{doorbell}</b>
+                    </p>
+                    <p>
+                        Όροφος: <b>{floor}</b>
+                    </p>
+                    <p>
+                        Διεύθυνση: <b> {address}</b>
+                    </p>
+                    <p>
+                        Τ.Κ: <b>{postal_code}</b>
+                    </p>
+                    <Link to="/profile">
+                        <Button>Αλλαγή Στοιχείων</Button>
+                    </Link>
                 </Segment>
                 <Segment placeholder style={{ margin: 10, justifyContent: "flex-start" }}>
                     <Header>Τρόπος Πληρωμής</Header>
@@ -40,7 +61,7 @@ const Cart = () => {
                                 <Item key={item.id}>
                                     <Item.Image size="tiny" src={item.photo} />
                                     <Item.Content verticalAlign="middle" style={{ textAlign: "center" }}>
-                                        {item.name} : {item.quantity}
+                                        {item.name} : {item.quantity} x {item.price} = {item.quantity * item.price}
                                     </Item.Content>
                                 </Item>
                             ))}
