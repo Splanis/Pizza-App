@@ -114,7 +114,7 @@ const SignUp = () => {
                         type="text"
                         value={name}
                         onChange={e => setCredentials({ ...credentials, name: e.target.value })}
-                        label="Όνοματεπώνυμο"
+                        label="Ονοματεπώνυμο"
                         required
                     ></Form.Field>{" "}
                     <Form.Field
