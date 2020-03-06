@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { Segment, List, Icon, Button } from "semantic-ui-react";
+import { Segment, List, Icon, Button, Header } from "semantic-ui-react";
 
 import { incrementQuantityAction, decrementQuantityAction } from "../../../store/actions/cartActions";
 
@@ -19,6 +19,7 @@ const Cart = () => {
                     <p>Το καλάθι είναι άδειο</p>
                 ) : (
                     <div>
+                        <Header style={{ textAlign: "center" }}>Καλάθι</Header>
                         {cartItems.map(item => (
                             <List.Item style={{ margin: 10 }} key={item.id}>
                                 <List.Content>
