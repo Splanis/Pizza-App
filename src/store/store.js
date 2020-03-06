@@ -7,7 +7,7 @@ import firebase from "./../firebase/firebase";
 
 import rootReducer from "./reducers/rootReducer";
 
-// Load state to local storage
+// Load state from local storage
 const loadFromLocalStorage = () => {
     try {
         const serializedState = localStorage.getItem("state");

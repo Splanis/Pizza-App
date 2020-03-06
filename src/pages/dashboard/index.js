@@ -7,7 +7,7 @@ import { Grid, Menu, Segment } from "semantic-ui-react";
 import Item from "./item";
 import Cart from "./cart";
 
-const Dashboard = props => {
+const Dashboard = () => {
     const [activeItem, setActiveItem] = useState("Πίτσες");
     const menu = useSelector(state => state.menu);
 
@@ -41,7 +41,6 @@ const Dashboard = props => {
                         ))}
                 </Segment>
             </Grid.Column>
-
             <Grid.Column width={2}>
                 <Cart />
             </Grid.Column>
