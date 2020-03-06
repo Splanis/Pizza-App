@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import { useSelector } from "react-redux";
@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import AuthLinks from "./AuthLinks";
 import NotAuthLinks from "./NotAuthLinks";
 
-import { Menu, Input, Icon } from "semantic-ui-react";
+import { Menu, Icon } from "semantic-ui-react";
 
 const quantity = {
     backgroundColor: "red",
@@ -26,7 +26,7 @@ const quantity = {
 const Navbar = () => {
     const isUser = useSelector(state => (state.firebase.auth.uid ? true : false));
     const displayName = useSelector(state => state.firebase.auth.displayName);
-    let cartQuantity = useSelector(state => state.cart.quantity);
+    const cartQuantity = useSelector(state => state.cart.quantity);
 
     return (
         <Menu inverted style={{ display: "flex", height: 70, width: "100%", top: 0 }}>
