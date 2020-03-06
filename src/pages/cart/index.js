@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { Segment, Header, Form, Radio, Button, Icon, Item } from "semantic-ui-react";
 
 const Cart = () => {
+    const isUser = useSelector(state => (state.firebase.auth.uid ? true : false));
     const userProfile = useSelector(state => state.firebase.profile);
     const { name, phone, address, postal_code, floor, doorbell } = userProfile;
     const cart = useSelector(state => state.cart);
@@ -34,9 +35,11 @@ const Cart = () => {
                     <p>
                         Τ.Κ: <b>{postal_code}</b>
                     </p>
-                    <Link to="/profile">
-                        <Button>Αλλαγή Στοιχείων</Button>
-                    </Link>
+                    {isUser && (
+                        <Link to="/profile">
+                            <Button>Αλλαγή Στοιχείων</Button>
+                        </Link>
+                    )}
                 </Segment>
                 <Segment placeholder style={{ margin: 10, justifyContent: "flex-start" }}>
                     <Header>Τρόπος Πληρωμής</Header>
@@ -70,14 +73,23 @@ const Cart = () => {
                     <Segment>
                         Κόστος: {cart.totalCost.toFixed(2)} <Icon name="euro" />
                     </Segment>
+                    <Link to="/">
+                        <Button>Αλλαγή</Button>
+                    </Link>
                 </Segment>
             </div>
-            <Button primary animated="vertical" style={{ width: 120 }}>
-                <Button.Content hidden>Αποστολή</Button.Content>
-                <Button.Content visible>
-                    <Icon name="shop" />
-                </Button.Content>
-            </Button>
+            {isUser ? (
+                <Button primary animated="vertical" style={{ width: 120 }}>
+                    <Button.Content hidden>Αποστολή</Button.Content>
+                    <Button.Content visible>
+                        <Icon name="shop" />
+                    </Button.Content>
+                </Button>
+            ) : (
+                <Link to="/login">
+                    <Button>Σύνδεση</Button>
+                </Link>
+            )}
         </Segment>
     );
 };
