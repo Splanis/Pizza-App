@@ -26,11 +26,11 @@ export const signUpAction = credentials => async (dispatch, getState, { getFires
             .collection("users")
             .doc(response.user.uid)
             .set({
-                firstName: credentials.firstName,
-                lastName: credentials.lastName,
+                name: credentials.name,
                 address: credentials.address,
                 postal_code: credentials.postal_code,
-                city: credentials.city,
+                doorbell: credentials.doorbell,
+                floor: credentials.floor,
                 phone: credentials.phone
             });
         dispatch({ type: actions.AUTH_SUCCES });
