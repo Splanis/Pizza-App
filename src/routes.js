@@ -28,6 +28,7 @@ const Routes = () => {
             <Switch>
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/login" component={SignIn} />
+                <Route exact path="/cart" component={Cart} />
                 <Route exact path="/register" component={SignUp} />
                 <Redirect to="/" />
             </Switch>
