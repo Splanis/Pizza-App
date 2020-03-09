@@ -4,8 +4,8 @@ export const addToCartAction = ({ id, name, photo, ingredients, price }) => asyn
     dispatch({ type: actions.ADD_TO_CART, item: { id, name, photo, ingredients, price } });
 };
 
-export const removeFromCartAction = ({ id, name, photo, ingredients, price }) => async (dispatch, getState) => {
-    dispatch({ type: actions.REMOVE_FROM_CARD, item: { id, name, photo, ingredients, price } });
+export const removeFromCartAction = id => async (dispatch, getState) => {
+    dispatch({ type: actions.REMOVE_FROM_CARD, item: id });
 };
 
 export const incrementQuantityAction = id => async (dispatch, getState) => {
@@ -15,3 +15,4 @@ export const incrementQuantityAction = id => async (dispatch, getState) => {
 export const decrementQuantityAction = id => async (dispatch, getState) => {
     dispatch({ type: actions.DECREMENT_QUANTITY, item: id });
 };
+

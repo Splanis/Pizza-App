@@ -3,15 +3,14 @@ import * as actions from "../actions/actionTypes";
 const initialState = { cartItems: [], totalCost: 0, quantity: 0 };
 
 export const cartReducer = (state = initialState, { type, item }) => {
+    let current_item;
     switch (type) {
         case actions.ADD_TO_CART:
-            if (state.cartItems.find(product => product.id === item.id)) {
-                state.cartItems.find(product => product.id === item.id).quantity++;
+            current_item = state.cartItems.find(product => product.id === item.id);
+            if (current_item) {
+                current_item.quantity++;
                 return {
                     ...state,
-                    cartItems: state.cartItems.filter(product => {
-                        return product.id !== item;
-                    }),
                     quantity: state.cartItems.reduce((a, b) => a + b.quantity, 0),
                     totalCost: state.cartItems.reduce((a, b) => a + Number(b.price) * b.quantity, 0)
                 };
@@ -19,11 +18,16 @@ export const cartReducer = (state = initialState, { type, item }) => {
             return {
                 ...state,
                 cartItems: [...state.cartItems, { ...item, quantity: 1 }],
-                quantity: state.cartItems.reduce((a, b) => a + b.quantity, 1),
-                totalCost: state.cartItems.reduce((a, b) => a + Number(b.price) * b.quantity, Number(item.price))
+                quantity: state.cartItems.reduce((a, b) => a + b.quantity, 0),
+                totalCost: state.cartItems.reduce((a, b) => a + Number(b.price) * b.quantity, 0)
             };
         case actions.REMOVE_FROM_CARD:
-            return state;
+            state.cartItems = state.cartItems.filter(product => product.id !== item);
+            return {
+                ...state,
+                quantity: state.cartItems.reduce((a, b) => a + b.quantity, 0),
+                totalCost: state.cartItems.reduce((a, b) => a + Number(b.price) * b.quantity, 0)
+            };
         case actions.INCREMENT_QUANTITY:
             state.cartItems.find(x => x.id === item).quantity++;
             return {
@@ -32,8 +36,9 @@ export const cartReducer = (state = initialState, { type, item }) => {
                 totalCost: state.cartItems.reduce((a, b) => a + Number(b.price) * b.quantity, 0)
             };
         case actions.DECREMENT_QUANTITY:
-            state.cartItems.find(x => x.id === item).quantity--;
-            if (state.cartItems.find(x => x.id === item).quantity === 0) {
+            current_item = state.cartItems.find(product => product.id === item);
+            current_item.quantity--;
+            if (current_item.quantity === 0) {
                 return {
                     ...state,
                     cartItems: state.cartItems.filter(product => {
