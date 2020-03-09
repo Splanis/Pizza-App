@@ -15,9 +15,9 @@ export const cartReducer = (state = initialState, { type, item }) => {
                     totalCost: state.cartItems.reduce((a, b) => a + Number(b.price) * b.quantity, 0)
                 };
             }
+            state.cartItems = [...state.cartItems, { ...item, quantity: 1 }];
             return {
                 ...state,
-                cartItems: [...state.cartItems, { ...item, quantity: 1 }],
                 quantity: state.cartItems.reduce((a, b) => a + b.quantity, 0),
                 totalCost: state.cartItems.reduce((a, b) => a + Number(b.price) * b.quantity, 0)
             };

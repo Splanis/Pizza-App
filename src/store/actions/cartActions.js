@@ -15,4 +15,3 @@ export const incrementQuantityAction = id => async (dispatch, getState) => {
 export const decrementQuantityAction = id => async (dispatch, getState) => {
     dispatch({ type: actions.DECREMENT_QUANTITY, item: id });
 };
-
