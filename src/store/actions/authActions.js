@@ -1,49 +1,50 @@
 import * as actions from "../actions/actionTypes";
 
-export const signInAction = ({ email, password }) => async (dispatch, getState, { getFirebase }) => {
-    const firebase = getFirebase();
-
+export const loginAction = credentials => async (dispatch, getState) => {
     try {
-        await firebase.auth().signInWithEmailAndPassword(email, password);
-        dispatch({ type: actions.AUTH_SUCCES });
-    } catch (error) {
-        dispatch({ type: actions.AUTH_FAILED, payload: error.code });
-    }
-};
+        const headers = new Headers();
+        headers.append("Content-Type", "application/json");
 
-export const signUpAction = credentials => async (dispatch, getState, { getFirestore, getFirebase }) => {
-    const firebase = getFirebase();
-    const firestore = getFirestore();
-
-    try {
-        const response = await firebase.auth().createUserWithEmailAndPassword(credentials.email, credentials.password);
-
-        await firebase.auth().currentUser.updateProfile({
-            displayName: credentials.displayName
+        const response = await fetch("api/user/login", {
+            method: "POST",
+            headers,
+            body: JSON.stringify(credentials)
         });
 
-        await firestore
-            .collection("users")
-            .doc(response.user.uid)
-            .set({
-                name: credentials.name,
-                address: credentials.address,
-                postal_code: credentials.postal_code,
-                doorbell: credentials.doorbell,
-                floor: credentials.floor,
-                phone: credentials.phone
-            });
-        dispatch({ type: actions.AUTH_SUCCES });
+        const data = await response.json();
+        const auth_token = response.headers.get("auth_token");
+
+        if (!auth_token) dispatch({ type: actions.AUTH_FAILED, payload: data });
+
+        dispatch({ type: actions.AUTH_SUCCESS, payload: { userProfile: data.userProfile, auth_token } });
     } catch (error) {
         dispatch({ type: actions.AUTH_FAILED, payload: error.code });
     }
 };
 
-export const signOutAction = () => async (dispatch, getState, { getFirebase }) => {
-    const firebase = getFirebase();
-
+export const registerAction = credentials => async (dispatch, getState) => {
     try {
-        await firebase.auth().signOut();
+        const headers = new Headers();
+        headers.append("Content-Type", "application/json");
+
+        const response = await fetch("api/user/register", {
+            method: "POST",
+            headers,
+            body: JSON.stringify(credentials)
+        });
+
+        const data = await response.json();
+        const auth_token = response.headers.get("auth_token");
+
+        dispatch({ type: actions.AUTH_SUCCESS, payload: { userProfile: data.userProfile, auth_token } });
+    } catch (error) {
+        dispatch({ type: actions.AUTH_FAILED, payload: error.code });
+    }
+};
+
+export const logoutAction = () => async (dispatch, getState) => {
+    try {
+        dispatch({ type: actions.LOGOUT });
     } catch (error) {
         console.log(error);
     }
