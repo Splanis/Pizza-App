@@ -6,7 +6,7 @@ import { Card, Icon, Image, Button } from "semantic-ui-react";
 
 import { addToCartAction, removeFromCartAction } from "../../../store/actions/cartActions";
 
-const Item = ({ id, name, photo, ingredients, price }) => {
+const Product = ({ id, name, photo, ingredients, price }) => {
     const dispatch = useDispatch();
 
     return (
@@ -34,4 +34,4 @@ const Item = ({ id, name, photo, ingredients, price }) => {
     );
 };
 
-export default Item;
+export default Product;

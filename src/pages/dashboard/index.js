@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 import { Grid, Menu, Segment } from "semantic-ui-react";
 
-import Item from "./item";
+import Product from "./product";
 import Cart from "./cart";
 
 const Dashboard = () => {
@@ -12,25 +12,26 @@ const Dashboard = () => {
     const menu = useSelector(state => state.menu);
 
     return (
-        <Grid>
+        <Grid style={{ display: "flex", justifyContent: "center" }}>
             <Grid.Column width={2}>
-                <Menu fluid vertical tabular>
+                <Menu fluid vertical tabular style={{ position: "fixed" }}>
                     {menu.categories.map(category => (
                         <Menu.Item
                             key={category.id}
                             name={category.name}
                             active={activeItem === category.name}
                             onClick={() => setActiveItem(category.name)}
+                            style={{ width: 250 }}
                         />
                     ))}
                 </Menu>
             </Grid.Column>
-            <Grid.Column stretched width={12}>
+            <Grid.Column stretched width={11}>
                 <Segment style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
                     {menu.categories
                         .find(category => category.name === activeItem)
                         .items.map(item => (
-                            <Item
+                            <Product
                                 key={item.id}
                                 id={item.id}
                                 photo={item.photo}
