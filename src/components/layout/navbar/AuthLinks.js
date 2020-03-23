@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 import { Menu, Dropdown } from "semantic-ui-react";
 
-const isUserLinks = ({ displayName }) => {
+const isUserLinks = ({ username }) => {
     return (
         <Menu.Item>
-            <Dropdown text={displayName}>
+            <Dropdown text={username}>
                 <Dropdown.Menu>
                     <Link to="/profile">
                         <Dropdown.Item style={{ margin: 5, color: "black" }}>Προφίλ</Dropdown.Item>
