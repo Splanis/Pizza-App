@@ -2,13 +2,13 @@ import { useEffect } from "react";
 
 import { useDispatch } from "react-redux";
 
-import { signOutAction } from "../../store/actions/authActions";
+import { logoutAction } from "../../store/actions/authActions";
 
 const Logout = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(signOutAction());
+        dispatch(logoutAction());
     }, [dispatch]);
 
     return null;

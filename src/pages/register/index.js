@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
-import { signUpAction } from "../../store/actions/authActions";
+import { useDispatch } from "react-redux";
+import { registerAction, loginAction } from "../../store/actions/authActions";
 
 import { Button, Form, Segment, Input } from "semantic-ui-react";
 
-const SignUp = () => {
+const Register = () => {
     const [errors, setError] = useState({
         emailError: "",
         passwordError: ""
@@ -16,7 +16,7 @@ const SignUp = () => {
         email: "",
         password: "",
         password2: "",
-        displayName: "",
+        username: "",
         name: "",
         floor: "",
         doorbell: "",
@@ -24,32 +24,14 @@ const SignUp = () => {
         phone: "",
         postal_code: ""
     });
-    const { email, password, password2, displayName, name, floor, doorbell, address, postal_code, phone } = credentials;
+    const { email, password, password2, username, name, floor, doorbell, address, postal_code, phone } = credentials;
 
     const dispatch = useDispatch();
-    const authError = useSelector(state => state.auth.authError);
 
-    useEffect(() => {
-        // Translating AuthErrors in Greek
-        switch (authError) {
-            case "auth/invalid-email":
-                setError({ passwordError: "", emailError: "Το Email είναι λάθος" });
-                break;
-            case "auth/email-already-in-use":
-                setError({ passwordError: "", emailError: "Το Email χρησιμοποιείται ήδη" });
-                break;
-            case "auth/weak-password":
-                setError({ emailError: "", passwordError: "Αδύναμος κωδικός" });
-                break;
-            default:
-                setError({ ...errors });
-        }
-    }, [authError]);
-
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
         if (password === password2) {
-            dispatch(signUpAction(credentials));
+            dispatch(registerAction(credentials));
         } else {
             setError({ emailError: "", passwordError: "Οι κωδικοί δεν ταιριάζουν" });
         }
@@ -77,8 +59,8 @@ const SignUp = () => {
                     <Form.Field
                         control={Input}
                         type="text"
-                        value={displayName}
-                        onChange={e => setCredentials({ ...credentials, displayName: e.target.value })}
+                        value={username}
+                        onChange={e => setCredentials({ ...credentials, username: e.target.value })}
                         label="Ψευδώνυμο"
                         required
                     ></Form.Field>
@@ -170,4 +152,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default Register;

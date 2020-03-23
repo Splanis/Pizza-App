@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { useDispatch, useSelector } from "react-redux";
-import { signInAction } from "../../store/actions/authActions";
+import { useDispatch } from "react-redux";
+import { loginAction } from "../../store/actions/authActions";
 
 import { Button, Form, Segment, Grid, Divider, Input } from "semantic-ui-react";
 
-const SignIn = () => {
+const Login = () => {
     const [errors, setError] = useState({
         emailError: "",
         passwordError: ""
@@ -20,30 +20,10 @@ const SignIn = () => {
     const { email, password } = credentials;
 
     const dispatch = useDispatch();
-    const authError = useSelector(state => state.auth.authError);
-
-    useEffect(() => {
-        // Translating AuthErrors in Greek
-        switch (authError) {
-            case "auth/invalid-email":
-                setError({ passwordError: "", emailError: "Λάθος Email" });
-                break;
-            case "auth/wrong-password":
-                setError({ emailError: "", passwordError: "Λάθος κωδικός" });
-                break;
-            default:
-                setError({ ...errors });
-        }
-    }, [authError]);
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(
-            signInAction({
-                email: email,
-                password: password
-            })
-        );
+        dispatch(loginAction(credentials));
     };
 
     return (
@@ -105,4 +85,4 @@ const SignIn = () => {
     );
 };
 
-export default SignIn;
+export default Login;
