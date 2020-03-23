@@ -6,10 +6,10 @@ import { useSelector } from "react-redux";
 import { Segment, Header, Form, Radio, Button, Icon, Item } from "semantic-ui-react";
 
 const Cart = () => {
-    const isUser = useSelector(state => (state.firebase.auth.uid ? true : false));
-    const userProfile = useSelector(state => state.firebase.profile);
-    const { name, phone, address, postal_code, floor, doorbell } = userProfile;
+    const isUser = useSelector(state => (state.auth.profile ? true : false));
     const cart = useSelector(state => state.cart);
+    const profile = useSelector(state => state.auth.profile);
+    const { name, phone, address, postal_code, floor, doorbell } = profile || {};
 
     return (
         <Segment style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>

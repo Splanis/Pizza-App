@@ -24,12 +24,16 @@ const quantity = {
 };
 
 const Navbar = () => {
-    const isUser = useSelector(state => (state.firebase.auth.uid ? true : false));
-    const displayName = useSelector(state => state.firebase.auth.displayName);
+    const isUser = useSelector(state => (state.auth.profile ? true : false));
     const cartQuantity = useSelector(state => state.cart.quantity);
+    const profile = useSelector(state => state.auth.profile);
+    let username = null;
+    if (profile) {
+        username = profile.username;
+    }
 
     return (
-        <Menu inverted style={{ display: "flex", height: 70, width: "100%", top: 0 }}>
+        <Menu inverted style={{ display: "flex", height: 70, width: "100%", top: 0, position: "fixed", zIndex: 10 }}>
             <Link to="/" style={{ display: "flex", justifyContent: "center", marginRight: "auto" }}>
                 <Menu.Item>
                     <p>This is Logo</p>
@@ -38,7 +42,7 @@ const Navbar = () => {
             {/* <Menu.Item style={{ margin: "auto" }}>
                 <Input inverted placeholder="Αναζήτηση..." />
             </Menu.Item> */}
-            <Menu.Item style={{ marginLeft: "auto" }}>{isUser ? <AuthLinks displayName={displayName} /> : <NotAuthLinks />}</Menu.Item>
+            <Menu.Item style={{ marginLeft: "auto" }}>{isUser ? <AuthLinks username={username} /> : <NotAuthLinks />}</Menu.Item>
             <Menu.Item>
                 <Link to="/cart" style={{ color: "white" }}>
                     <Icon style={{ margin: 5, position: "relative" }} size="big" name="shopping cart" />
