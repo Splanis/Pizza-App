@@ -12,7 +12,7 @@ const Cart = () => {
     const totalCost = useSelector(state => state.cart.totalCost);
 
     return (
-        <Segment placeholder style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <Segment placeholder style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "fixed", width: 205 }}>
             <List relaxed>
                 {cartItems.length === 0 ? (
                     <p>Το καλάθι είναι άδειο</p>

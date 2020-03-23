@@ -1,9 +1,5 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
-import { getFirebase } from "react-redux-firebase";
-import { reduxFirestore, getFirestore, createFirestoreInstance } from "redux-firestore";
-
-import firebase from "./../firebase/firebase";
 
 import rootReducer from "./reducers/rootReducer";
 
@@ -23,9 +19,16 @@ const loadFromLocalStorage = () => {
 const persistedState = loadFromLocalStorage();
 
 // Creating store
-const middleware = applyMiddleware(thunk.withExtraArgument({ getFirestore, getFirebase }));
+// const cartMiddleware = store => next => action => {
+//     const result = next(action);
+//     store.getState().cart.quantity = store.getState().cart.cartItems.reduce((a, b) => a + b.quantity, 0);
+//     store.getState().cart.totalCost = store.getState().cart.cartItems.reduce((a, b) => a + Number(b.price) * b.quantity, 0);
+
+//     return result;
+// };
+const middleware = applyMiddleware(thunk.withExtraArgument());
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(rootReducer, persistedState, composeEnhancers(reduxFirestore(firebase), middleware));
+const store = createStore(rootReducer, persistedState, composeEnhancers(middleware));
 
 // Save state to local storage
 const saveToLocalStorage = state => {
@@ -38,19 +41,5 @@ const saveToLocalStorage = state => {
 };
 
 store.subscribe(() => saveToLocalStorage(store.getState()));
-
-// props for ReactReduxFirebaseProvider
-export const rrfConfig = {
-    userProfile: "users",
-    useFirestoreForProfile: true
-};
-
-export const rrfProps = {
-    firebase,
-    config: rrfConfig,
-    dispatch: store.dispatch,
-    createFirestoreInstance,
-    attachAuthIsReady: true
-};
 
 export default store;
