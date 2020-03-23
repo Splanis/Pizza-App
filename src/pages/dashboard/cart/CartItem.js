@@ -2,7 +2,7 @@ import React from "react";
 
 import { useDispatch } from "react-redux";
 
-import { incrementQuantityAction, decrementQuantityAction, removeFromCartAction } from "../../../store/actions/cartActions";
+import { incrementQuantityAction, decrementQuantityAction } from "../../../store/actions/cartActions";
 
 import { List, Icon, Button } from "semantic-ui-react";
 
@@ -23,7 +23,6 @@ const CartItem = ({ id, name, price, quantity }) => {
                         <Button onClick={() => dispatch(incrementQuantityAction(id))}>
                             <Icon name="add" style={{ marginLeft: 10 }} />
                         </Button>
-                        <Button onClick={() => dispatch(removeFromCartAction(id))} icon="remove" />
                     </Button.Group>
                 </List.Description>
             </List.Content>
