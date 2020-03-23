@@ -1,8 +1,8 @@
 import * as actions from "../actions/actionTypes";
 
-const initialState = { cartItems: [], totalCost: 0, quantity: 0 };
+const initialState = { cartItems: [], totalCost: 0, quantity: 0, comments: "" };
 
-export const cartReducer = (state = initialState, { type, item }) => {
+export const cartReducer = (state = initialState, { type, item, comments }) => {
     let current_item;
     switch (type) {
         case actions.ADD_TO_CART:
@@ -53,6 +53,8 @@ export const cartReducer = (state = initialState, { type, item }) => {
                 quantity: state.cartItems.reduce((a, b) => a + b.quantity, 0),
                 totalCost: state.cartItems.reduce((a, b) => a + Number(b.price) * b.quantity, 0)
             };
+        case actions.ADD_COMMENTS:
+            return { ...state, comments: comments };
         default:
             return state;
     }

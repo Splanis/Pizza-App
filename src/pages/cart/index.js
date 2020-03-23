@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { addCommentsAction } from "../../store/actions/cartActions";
 
 import { Segment, Header, Form, Radio, Button, Icon, Item } from "semantic-ui-react";
 
@@ -9,7 +11,9 @@ const Cart = () => {
     const isUser = useSelector(state => (state.auth.profile ? true : false));
     const cart = useSelector(state => state.cart);
     const profile = useSelector(state => state.auth.profile);
+    const comments = useSelector(state => state.cart.comments);
     const { name, phone, address, postal_code, floor, doorbell } = profile || {};
+    const dispatch = useDispatch();
 
     return (
         <Segment style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
@@ -41,8 +45,9 @@ const Cart = () => {
                         </Link>
                     )}
                 </Segment>
-                <Segment placeholder style={{ margin: 10, justifyContent: "flex-start" }}>
-                    <Header>Τρόπος Πληρωμής</Header>
+
+                <Segment placeholder style={{ margin: 10 }}>
+                    <Header style={{ textAlign: "center" }}>Τρόπος Πληρωμής</Header>
                     <Form>
                         <Form.Field>Επιλέξτε τρόπο πληρωμής:</Form.Field>
                         <Form.Field>
@@ -56,6 +61,19 @@ const Cart = () => {
                         </Form.Field>
                     </Form>
                 </Segment>
+
+                <Segment placeholder style={{ margin: 10 }}>
+                    <Header style={{ textAlign: "center" }}>Σχόλια Παραγγελίας</Header>
+                    <textarea
+                        placeholder="π.χ Ρέστα από πενηντάρικο"
+                        style={{ width: 200, height: 180, padding: 5, resize: "none" }}
+                        value={comments}
+                        onChange={e => {
+                            dispatch(addCommentsAction(e.target.value));
+                        }}
+                    />
+                </Segment>
+
                 <Segment placeholder style={{ margin: 10, justifyContent: "flex-start" }}>
                     <Header>Καλάθι</Header>
                     <Segment>
@@ -78,6 +96,7 @@ const Cart = () => {
                     </Link>
                 </Segment>
             </div>
+
             {isUser ? (
                 <Button primary animated="vertical" style={{ width: 120 }}>
                     <Button.Content hidden>Αποστολή</Button.Content>
