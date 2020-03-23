@@ -4,21 +4,21 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import Dashboard from "./pages/dashboard";
-import SignIn from "./pages/signin";
-import SignUp from "./pages/signup";
-import SignOut from "./pages/signout";
+import Login from "./pages/login";
+import Register from "./pages/register";
+import Logout from "./pages/logout";
 import Cart from "./pages/cart";
 import Profile from "./pages/profile";
 
 const Routes = () => {
-    const isUser = useSelector(state => (state.firebase.auth.uid ? true : false));
+    const isUser = useSelector(state => (state.auth.profile ? true : false));
 
     if (isUser) {
         return (
             <Switch>
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/cart" component={Cart} />
-                <Route exact path="/logout" component={SignOut} />
+                <Route exact path="/logout" component={Logout} />
                 <Route exact path="/profile" component={Profile} />
                 <Redirect to="/" />
             </Switch>
@@ -27,9 +27,9 @@ const Routes = () => {
         return (
             <Switch>
                 <Route exact path="/" component={Dashboard} />
-                <Route exact path="/login" component={SignIn} />
+                <Route exact path="/login" component={Login} />
                 <Route exact path="/cart" component={Cart} />
-                <Route exact path="/register" component={SignUp} />
+                <Route exact path="/register" component={Register} />
                 <Redirect to="/" />
             </Switch>
         );
