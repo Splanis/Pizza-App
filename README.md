@@ -1,16 +1,26 @@
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+This is a project for my Thesis at University of West Attica. It is developed with React Library for the Front end and Node.js for the
+Backend. You can find the RestApi for this WebApp to my Rest-Api repository (https://github.com/Splanis/Rest-Api).
 
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
+### Presentation
 
 ![](presentation.gif)
 
+### Run
 
+To run the project you have to clone both repositories and run:
+
+```
+cd Rest-Api
+npm install
+npm start
+```
+
+```
+cd Pizza-App
+npm install
+npm start
+```
+
+The project will run http://localhost:3000/
