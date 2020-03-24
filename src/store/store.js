@@ -26,7 +26,7 @@ const persistedState = loadFromLocalStorage();
 
 //     return result;
 // };
-const middleware = applyMiddleware(thunk.withExtraArgument());
+const middleware = applyMiddleware(thunk);
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, persistedState, composeEnhancers(middleware));
 

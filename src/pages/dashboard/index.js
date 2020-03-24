@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { fetchMenuAction } from "../../store/actions/menuActions";
 
 import { Grid, Menu, Segment } from "semantic-ui-react";
 
@@ -9,15 +11,20 @@ import Cart from "./cart";
 
 const Dashboard = () => {
     const [activeItem, setActiveItem] = useState("Πίτσες");
-    const menu = useSelector(state => state.menu);
+    const menu = useSelector(state => state.menu.menuItems);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchMenuAction());
+    }, []);
 
     return (
         <Grid style={{ display: "flex", justifyContent: "center" }}>
             <Grid.Column width={2}>
                 <Menu fluid vertical tabular style={{ position: "fixed" }}>
-                    {menu.categories.map(category => (
+                    {menu.map(category => (
                         <Menu.Item
-                            key={category.id}
+                            key={category._id}
                             name={category.name}
                             active={activeItem === category.name}
                             onClick={() => setActiveItem(category.name)}
@@ -26,22 +33,24 @@ const Dashboard = () => {
                     ))}
                 </Menu>
             </Grid.Column>
+
             <Grid.Column stretched width={11}>
                 <Segment style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
-                    {menu.categories
+                    {menu
                         .find(category => category.name === activeItem)
-                        .items.map(item => (
+                        .products.map(product => (
                             <Product
-                                key={item.id}
-                                id={item.id}
-                                photo={item.photo}
-                                name={item.name}
-                                ingredients={item.ingredients}
-                                price={item.price}
+                                key={product._id}
+                                id={product._id}
+                                photo={product.photo}
+                                name={product.name}
+                                overview={product.overview}
+                                price={product.price}
                             />
                         ))}
                 </Segment>
             </Grid.Column>
+
             <Grid.Column width={2}>
                 <Cart />
             </Grid.Column>

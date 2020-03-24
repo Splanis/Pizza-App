@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 
 import { Card, Icon, Image, Button } from "semantic-ui-react";
 
-import { addToCartAction, removeFromCartAction } from "../../../store/actions/cartActions";
+import { addToCartAction } from "../../../store/actions/cartActions";
 
-const Product = ({ id, name, photo, ingredients, price }) => {
+const Product = ({ id, name, photo, overview, price }) => {
     const dispatch = useDispatch();
 
     return (
@@ -14,7 +14,7 @@ const Product = ({ id, name, photo, ingredients, price }) => {
             <Image src={photo} wrapped ui={false} />
             <Card.Content>
                 <Card.Header>{name}</Card.Header>
-                <Card.Description>{ingredients}</Card.Description>
+                <Card.Description>{overview}</Card.Description>
             </Card.Content>
             <Card.Content extra style={{ display: "flex", alignItems: "center" }}>
                 <div>
@@ -24,7 +24,7 @@ const Product = ({ id, name, photo, ingredients, price }) => {
                     primary
                     style={{ marginLeft: "auto" }}
                     onClick={() => {
-                        dispatch(addToCartAction({ id, name, photo, ingredients, price }));
+                        dispatch(addToCartAction({ id, name, photo, overview, price }));
                     }}
                 >
                     Προσθήκη
