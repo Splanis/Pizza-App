@@ -1,7 +1,7 @@
 ## Overview
 
 This is a project for my Thesis at University of West Attica. It is developed with React Library for the Front end and Node.js for the
-Backend. You can find the RestApi for this WebApp to my Rest-Api repository (https://github.com/Splanis/Rest-Api).
+Backend. You can find the RestApi for this WebApp to my Pizza-REST-API repository (https://github.com/Splanis/Pizza-REST-API).
 
 ### Presentation
 
